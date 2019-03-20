@@ -1,0 +1,47 @@
+hr.style1{
+	border-top: 1px solid #8c8b8b;
+}
+mat-card{
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+    
+}
+layout{
+    display: inline-flex;
+    flex-direction: column;
+}
+mat-form-field{
+    width: 100%;
+}
+textarea{
+    width: 60%;
+    margin: auto;
+}
+
+button{
+    width: 100;
+    display: grid;
+}
+.formation{
+    box-shadow: -1px 1px 20px 5px lightcoral;
+    border-radius: 10px;
+}
+/*
+.form-container{
+    box-shadow: -1px 1px 30px 10px lightcoral;
+    padding: 60px 40px;
+    margin-top:10%;
+    margin-bottom: 10%;
+    border-radius: 10px;
+    background-color: #d74fd4;
+}
+.form-container .form-group label{
+    font-size: 17px;
+    color:yellow;
+}
+
+body{
+background-color:#1e1e2d;    
+}
+*/

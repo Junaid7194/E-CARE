@@ -1,0 +1,81 @@
+<nav-bar></nav-bar>
+        <!--Form-->
+   <mat-card class="formation">
+     <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" (ngSubmit)="log(f)">
+       <mat-form-field>
+         <input 
+            matInput 
+            ngModel
+            name="name"
+            type="text"
+            placeholder="Name">
+       </mat-form-field>
+       <mat-form-field>
+         <input 
+           ngModel
+           matInput 
+           required 
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  
+           name="email" 
+           id="email" 
+           #email="ngModel"
+           placeholder="Email"
+           type="email">
+            <mat-error *ngIf="!email.valid && email.touched">
+                <mat-error *ngIf="email.errors.required">
+                    E-mail is required !
+                  </mat-error>
+                  <mat-error *ngIf="email.errors.pattern">
+                    Pattern doesn't match.
+                  </mat-error>
+            </mat-error>      
+       </mat-form-field>
+       <mat-form-field> 
+          <input 
+            matInput
+            ngModel
+            required
+            minlength="8"
+            maxlength="12"
+            type="password" 
+            id="password" 
+            name="password"
+            #psd="ngModel"
+            placeholder="Password">
+          <mat-error *ngIf="!psd.valid && psd.touched">
+              <mat-error *ngIf="psd.errors.required">
+                  Password is required
+                </mat-error >
+                <mat-error *ngIf="psd.errors.minlength">
+                   Password must be of 8-12 characters !
+                </mat-error>
+           </mat-error>  
+        </mat-form-field> 
+        <mat-form-field> 
+          <input 
+            matInput
+            ngModel
+            name="Cpassword"
+            id="Cpassword"
+            type="password"
+            #cpsd="ngModel"  
+            placeholder="Confirm Password">
+        </mat-form-field>
+        <!--
+        <p>{{f.value | json}}</p>
+        -->
+        <button mat-raised-button 
+                type="submit" 
+                color="accent"
+                [disabled]="f.invalid"
+                >Submit</button>
+        </form>
+      </mat-card>
+    
+        <!--FORM-->
+        <!--
+<button (click)="getPosts()">Get Posts</button>
+<div *ngFor="let post of posts | async">
+  {{ post | json}}
+</div>
+-->

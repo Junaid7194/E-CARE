@@ -1,0 +1,34 @@
+mat-card{
+    width: 40%;
+    margin: auto;
+    margin-top: 2%;
+    
+}
+mat-form-field{
+    width: 100%;
+}
+button{
+    width: 100;
+    display: grid;
+}
+.formation{
+    box-shadow: -1px 1px 20px 5px lightcoral;
+    border-radius: 10px;
+}
+/*
+.form-container{
+    box-shadow: -1px 1px 30px 10px lightcoral;
+    padding: 60px 40px;
+    margin-top:25%;
+    margin-bottom: 10%;
+    border-radius: 10px;
+    background-color: crimson;
+}
+.form-container .form-group label{
+    font-size: 17px;
+    color:yellow;
+}
+
+body{
+background-color:black;    
+}*/

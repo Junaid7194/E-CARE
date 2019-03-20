@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<mat-card class="formation">
+<form #f="ngForm" (ngSubmit)=submit(f)>
+  <h2 style="text-align: center">Register Yourself!</h2>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        ngModel
+        matInput
+        required 
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+        name="email" 
+        id="email" 
+        #email="ngModel" 
+        (change)="log(email)"  
+        placeholder="Email"
+        type="email">
+        <mat-error *ngIf="!email.valid && email.touched">
+          <mat-error *ngIf="email.errors.required">
+              Email Should be entered !
+          </mat-error>
+          <mat-error *ngIf="email.errors.pattern">
+              Email does not match the pattern !
+          </mat-error>
+        </mat-error>  
+    </mat-form-field>
+    <!--
+    <mat-form-field>
+      <input 
+         ngModel
+         matInput
+         required
+         minlength="8"
+         maxlength="12"
+         type="password" 
+         id="password" 
+         name="password"
+         #psd="ngModel"
+         placeholder="Password">
+        <mat-error *ngIf="!psd.valid && psd.touched"> 
+          <mat-error *ngIf="psd.errors.required">
+            Password is required !
+          </mat-error>
+          <mat-error *ngIf="psd.errors.minlength">
+            Password must be of 8-12 characters.
+          </mat-error>
+        </mat-error>
+    </mat-form-field>
+  -->
+    <mat-form-field>
+      <mat-select placeholder="Gender" name="sGender" id="sGender">
+        <mat-option *ngFor="let gender of selectGender" [value]="gender.id">
+          {{gender.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Date of Birth">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="tel" placeholder="Contact Number">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select name="mStatus" id="mStatus" placeholder="Marital Status">
+        <mat-option *ngFor="let status of maritalStatus" [value]="status.id">
+          {{status.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+       <textarea 
+          matInput name="address" 
+          id="address" cols="5" rows="5" 
+          placeholder="Address">          
+       </textarea>
+    </mat-form-field>
+      <br>
+      <hr class="style1">
+      <br>
+    <p>In case of Emergency</p>
+    <mat-form-field>
+      <input matInput type="text" id="Ename" name="name" placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+        <input 
+          matInput type="text" id="relation" name="relation" 
+          placeholder="RelationShip">
+    </mat-form-field>
+    <mat-form-field>
+        <input 
+          matInput type="tel" id="ecNumber" name="ecNumber" 
+          placeholder="Contact Number">
+    </mat-form-field>
+    <div>
+     <label>Taking any medication, Currently</label> 
+       <mat-radio-group 
+       class="layout"
+       id="currentMedication">
+        <mat-radio-button *ngFor="let med of medication" [value]="med.id">
+            {{med.name}}
+          </mat-radio-button>
+        </mat-radio-group>
+    </div>    
+    <mat-form-field>
+      <textarea 
+        matInput name="yesArea" id="yesArea" 
+        cols="5" rows="5"
+        placeholder="If Yes,Please list here:"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Submit Form</button>
+  </form>
+</mat-card>
